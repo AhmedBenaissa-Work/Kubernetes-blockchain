@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blckch-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blckch
+  template:
+    metadata:
+      labels:
+        app: blckch
+    spec:
+      containers:
+      - name: blckch
+        image: thedockermaster001/blckch
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8545
+        
