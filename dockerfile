@@ -10,5 +10,8 @@ RUN npm install -g ganache-cli
 # Expose Ganache's default port
 EXPOSE 8545
 
-# Command to start Ganache
-CMD ["ganache-cli", "--host", "0.0.0.0"]
+ENV CHAIN_ID=1235
+
+# Run Ganache with the custom chain ID
+CMD ["ganache-cli", "--networkId", "${CHAIN_ID}", "--port", "8545", "--host", "0.0.0.0"]
+
